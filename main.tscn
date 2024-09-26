@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://by7hhgsjv5so8"]
+[gd_scene load_steps=4 format=3 uid="uid://by7hhgsjv5so8"]
 
 [ext_resource type="PackedScene" uid="uid://bwjrsgbo28k0r" path="res://Scenes/TileMap.tscn" id="1_fumfs"]
+[ext_resource type="PackedScene" uid="uid://ceaqcftntog5o" path="res://Mobs/Soldier A.tscn" id="2_8cvji"]
 
 [sub_resource type="Curve2D" id="Curve2D_3dbvc"]
 _data = {
@@ -9,6 +10,7 @@ _data = {
 point_count = 28
 
 [node name="Main" type="Node2D"]
+position = Vector2(7, 40)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1981, 971)
@@ -25,3 +27,6 @@ curve = SubResource("Curve2D_3dbvc")
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2(138, 234)
 rotation = 0.165149
+loop = false
+
+[node name="Soldier A" parent="Path2D/PathFollow2D" instance=ExtResource("2_8cvji")]
