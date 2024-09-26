@@ -19,6 +19,5 @@ config/icon="res://kenney_tower-defense-top-down/icon.svg"
 
 window/size/viewport_width=2304
 window/size/viewport_height=1296
-window/size/window_width_override=576
-window/size/window_height_override=324
+window/size/mode=3
 window/stretch/aspect="expand"
