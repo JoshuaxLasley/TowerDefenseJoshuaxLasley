@@ -16,12 +16,12 @@ script = ExtResource("1_ll75v")
 position = Vector2(-18, 0)
 shape = SubResource("RectangleShape2D_fknv8")
 
+[node name="Aim" type="Marker2D" parent="."]
+
 [node name="TowerDefenseTile250" type="Sprite2D" parent="."]
 rotation = 1.5708
 scale = Vector2(2, 2)
 texture = ExtResource("1_6aceg")
-
-[node name="Area" type="Marker2D" parent="."]
 
 [node name="Tower" type="Area2D" parent="."]
 position = Vector2(59, 0)
@@ -30,7 +30,7 @@ position = Vector2(59, 0)
 position = Vector2(-77, 0)
 shape = SubResource("CircleShape2D_5gyqc")
 
-[node name="Node" type="Node" parent="."]
+[node name="BulletContainer" type="Node" parent="."]
 
 [connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]
 [connection signal="body_exited" from="Tower" to="." method="_on_tower_body_exited"]
