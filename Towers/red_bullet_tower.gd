@@ -19,7 +19,7 @@ func _on_tower_body_entered(body:Node2D) -> void:
 		currTargets = get_node("Tower").get_overlapping_bodies()
 
 		for i in currTargets:
-			if "Soldier" in i.name:
+			if "Soldier A" in i.name:
 				tempArray.append(i)
 		var currTarget = null
 		

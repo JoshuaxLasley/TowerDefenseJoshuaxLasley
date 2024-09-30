@@ -21,7 +21,7 @@ func _on_gui_input(event: InputEvent):
 		var mapPath = get_tree().get_root().get_node("Main/TileMap")
 		var tile = mapPath.local_to_map(get_global_mouse_position())
 		currTile = mapPath.get_cell_atlas_coords(0, tile, false)
-		if (currTile == Vector2i(4,5)):
+		if (currTile == Vector2i(1,1)):
 			get_child(1).get_node("Area").modulate = Color(0,255,0)
 		else:
 			get_child(1).get_node("Area").modulate = Color(255,255,255)
@@ -34,7 +34,7 @@ func _on_gui_input(event: InputEvent):
 		else:
 			if get_child_count(1) > 1:
 				get_child(1).queue_free()
-			if currTile == Vector2i(4,5):
+			if currTile == Vector2i(1,1):
 				var path = get_tree().get_root().get_node("Main/Towers")
 			
 				path.add_child(tempTower)
