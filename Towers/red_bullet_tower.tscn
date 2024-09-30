@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dus8yn2q7nsfp"]
+[gd_scene load_steps=7 format=3 uid="uid://dus8yn2q7nsfp"]
 
 [ext_resource type="Texture2D" uid="uid://crtfu10ju1v46" path="res://kenney_tower-defense-top-down/PNG/Default size/towerDefense_tile250.png" id="1_6aceg"]
 [ext_resource type="Script" path="res://Towers/red_bullet_tower.gd" id="1_ll75v"]
@@ -10,11 +10,24 @@ size = Vector2(86, 94)
 radius = 400.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b6fhy"]
-bg_color = Color(0.999087, 0, 0.264215, 1)
+bg_color = Color(1, 0, 0, 1)
 corner_radius_top_left = 450
 corner_radius_top_right = 450
 corner_radius_bottom_right = 450
 corner_radius_bottom_left = 450
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sfsj3"]
+bg_color = Color(0.129412, 0.137255, 0.117647, 0.894118)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.180392, 0.396078, 0.858824, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [node name="RedBulletTower" type="StaticBody2D"]
 script = ExtResource("1_ll75v")
@@ -46,6 +59,16 @@ offset_top = -402.0
 offset_right = 384.0
 offset_bottom = 398.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_b6fhy")
+
+[node name="Upgrade" type="Node" parent="."]
+
+[node name="Upgrade" type="Panel" parent="Upgrade"]
+offset_left = -572.0
+offset_top = 81.0
+offset_right = 4.0
+offset_bottom = 273.0
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_sfsj3")
 
 [connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]
 [connection signal="body_exited" from="Tower" to="." method="_on_tower_body_exited"]
