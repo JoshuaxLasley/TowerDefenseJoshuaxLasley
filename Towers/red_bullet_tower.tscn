@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dus8yn2q7nsfp"]
+[gd_scene load_steps=10 format=3 uid="uid://dus8yn2q7nsfp"]
 
 [ext_resource type="Texture2D" uid="uid://crtfu10ju1v46" path="res://kenney_tower-defense-top-down/PNG/Default size/towerDefense_tile250.png" id="1_6aceg"]
 [ext_resource type="Script" path="res://Towers/red_bullet_tower.gd" id="1_ll75v"]
@@ -29,6 +29,32 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6sv0g"]
+bg_color = Color(0.478058, 0.601581, 0.824586, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.725944, 0.793704, 1, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8h5rx"]
+bg_color = Color(1, 0.0196078, 0.0156863, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(1, 0.137255, 0.156863, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4r5y8"]
 bg_color = Color(0.266667, 0.627451, 0.909804, 1)
 border_width_left = 15
@@ -43,6 +69,7 @@ corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
 [node name="RedBulletTower" type="StaticBody2D"]
+input_pickable = true
 script = ExtResource("1_ll75v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -85,14 +112,61 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_sfsj3")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Upgrade/Upgrade"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/separation = 10
+offset_left = 4.0
+offset_top = 21.5
+offset_right = 574.0
+offset_bottom = 146.5
+theme_override_constants/separation = 68
+alignment = 1
 
-[node name="Button" type="Button" parent="Upgrade/Upgrade/HBoxContainer"]
+[node name="Range" type="Button" parent="Upgrade/Upgrade/HBoxContainer"]
 custom_minimum_size = Vector2(125, 125)
 layout_mode = 2
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_6sv0g")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8h5rx")
 theme_override_styles/normal = SubResource("StyleBoxFlat_4r5y8")
 
+[node name="Label" type="Label" parent="Upgrade/Upgrade/HBoxContainer/Range"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 131.0
+offset_right = 121.0
+offset_bottom = 154.0
+text = "10000"
+horizontal_alignment = 1
+
+[node name="AttackSpeed" type="Button" parent="Upgrade/Upgrade/HBoxContainer"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_6sv0g")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8h5rx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4r5y8")
+
+[node name="Label" type="Label" parent="Upgrade/Upgrade/HBoxContainer/AttackSpeed"]
+layout_mode = 0
+offset_left = 12.5
+offset_top = 131.0
+offset_right = 109.5
+offset_bottom = 154.0
+text = "10000"
+horizontal_alignment = 1
+
+[node name="Power" type="Button" parent="Upgrade/Upgrade/HBoxContainer"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_6sv0g")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8h5rx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4r5y8")
+
+[node name="Label" type="Label" parent="Upgrade/Upgrade/HBoxContainer/Power"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 132.0
+offset_right = 126.0
+offset_bottom = 155.0
+text = "10000"
+horizontal_alignment = 1
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]
 [connection signal="body_exited" from="Tower" to="." method="_on_tower_body_exited"]
