@@ -5,6 +5,12 @@ var Bullet = preload("res://Towers/red_bullet.tscn")
 var bulletDamage = 5
 var currTargets = []
 var curr
+var pathName
+
+var reload = 0
+var range = 400
+@onready var timer= get_node("Upgrade/ProgressBar/Timer")
+var startShooting = false
 
 func _process(delta):
 	if is_instance_valid(curr):
@@ -13,7 +19,15 @@ func _process(delta):
 		for i in get_node("BulletContainer").get_child_count():
 			get_node("BulletContainer").get_child(i).queue_free()
 
-func _on_tower_body_entered(body:Node2D) -> void:
+func Shoot():
+	var tempBullet = Bullet.instantiate()
+	tempBullet.pathName = pathName
+	tempBullet.bulletDamage = bulletDamage
+	get_node("BulletContainer").add_child(tempBullet)
+	tempBullet.global_position = $Aim.global_position
+
+
+func _on_tower_body_entered(body):
 	if "Soldier A" in body.name:
 		var tempArray = []
 		currTargets = get_node("Tower").get_overlapping_bodies()
@@ -30,13 +44,9 @@ func _on_tower_body_entered(body:Node2D) -> void:
 				if i.get_parent().get_progress() > currTarget.get_progress():
 					currTarget = i.get_node("../")
 		curr = currTarget
-		var pathName = currTarget.get_parent().name
-		
-		var tempBullet = Bullet.instantiate()
-		tempBullet.pathName = pathName
-		tempBullet.bulletDamage = bulletDamage
-		get_node("BulletContainer").add_child(tempBullet)
-		tempBullet.global_position = $Aim.global_position
+		pathName = currTarget.get_parent().name
+
+		Shoot()
 
 
 func _on_tower_body_exited(body:Node2D) -> void:
@@ -52,6 +62,7 @@ func _on_input_event(viewport, event, shape_idx):
 		get_node("Upgrade/Upgrade").visible = !get_node("Upgrade/Upgrade").visible
 		get_node("Upgrade/Upgrade").global_position = self.position + Vector2(-572,81)
 		
-		
-		
-		
+
+
+func _on_timer_timeout() -> void:
+	pass # Replace with function body.
