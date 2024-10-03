@@ -15,6 +15,10 @@ run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://kenney_tower-defense-top-down/icon.svg"
 
+[autoload]
+
+Game="*res://Global/Game.gd"
+
 [display]
 
 window/size/viewport_width=3584

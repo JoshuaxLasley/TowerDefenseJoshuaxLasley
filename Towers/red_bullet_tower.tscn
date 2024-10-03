@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dus8yn2q7nsfp"]
+[gd_scene load_steps=18 format=3 uid="uid://dus8yn2q7nsfp"]
 
 [ext_resource type="Texture2D" uid="uid://crtfu10ju1v46" path="res://kenney_tower-defense-top-down/PNG/Default size/towerDefense_tile250.png" id="1_6aceg"]
 [ext_resource type="Script" path="res://Towers/red_bullet_tower.gd" id="1_ll75v"]
@@ -13,6 +13,9 @@ size = Vector2(86, 94)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5gyqc"]
 radius = 400.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uo016"]
+size = Vector2(165, 133)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b6fhy"]
 bg_color = Color(1, 0, 0, 1)
@@ -101,6 +104,15 @@ position = Vector2(59, 0)
 position = Vector2(-59, 0)
 shape = SubResource("CircleShape2D_5gyqc")
 script = ExtResource("3_kuseq")
+
+[node name="TowerDetector" type="Area2D" parent="."]
+position = Vector2(118, 0)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TowerDetector"]
+position = Vector2(-126, 0)
+shape = SubResource("RectangleShape2D_uo016")
 
 [node name="BulletContainer" type="Node" parent="."]
 
@@ -211,6 +223,8 @@ wait_time = 3.0
 [connection signal="mouse_shape_entered" from="." to="." method="_on_mouse_shape_entered"]
 [connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]
 [connection signal="body_exited" from="Tower" to="." method="_on_tower_body_exited"]
+[connection signal="body_entered" from="TowerDetector" to="." method="_on_tower_body_entered"]
+[connection signal="body_exited" from="TowerDetector" to="." method="_on_tower_body_exited"]
 [connection signal="mouse_entered" from="Upgrade/Upgrade/HBoxContainer/Range" to="." method="_on_range_mouse_entered"]
 [connection signal="mouse_exited" from="Upgrade/Upgrade/HBoxContainer/Range" to="." method="_on_range_mouse_exited"]
 [connection signal="pressed" from="Upgrade/Upgrade/HBoxContainer/Range" to="." method="_on_range_pressed"]
