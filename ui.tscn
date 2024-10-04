@@ -58,12 +58,8 @@ layout_mode = 2
 [node name="RedTowerPannel2" parent="Panel/FlowContainer" instance=ExtResource("1_5cthk")]
 layout_mode = 2
 
-[node name="RedTowerPannel" parent="Panel/FlowContainer/RedTowerPannel2" instance=ExtResource("1_5cthk")]
+[node name="RedTowerPannel" parent="Panel/FlowContainer" instance=ExtResource("1_5cthk")]
 layout_mode = 2
-offset_left = 91.0
-offset_top = 0.333354
-offset_right = 171.0
-offset_bottom = 80.3334
 
 [node name="Health" type="Label" parent="."]
 offset_right = 40.0

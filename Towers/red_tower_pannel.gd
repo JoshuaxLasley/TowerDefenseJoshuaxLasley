@@ -25,9 +25,13 @@ func _on_gui_input(event: InputEvent):
 			var tile = mapPath.local_to_map(get_global_mouse_position())
 			currTile = mapPath.get_cell_atlas_coords(0, tile, false)
 			var targets = get_child(1).get_node("TowerDetector").get_overlapping_bodies()
+
 			
 			if (currTile == Vector2i(1,1)):
-				get_child(1).get_node("Area").modulate = Color(0,255,0, 0.3)
+				if (targets.size() > 0):
+					get_child(1).get_node("Area").modulate = Color(255,255,255, 0.3)
+				else:
+					get_child(1).get_node("Area").modulate = Color(0,255,0, 0.3)
 			else:
 				get_child(1).get_node("Area").modulate = Color(255,255,255, 0.3)
 			
@@ -41,7 +45,8 @@ func _on_gui_input(event: InputEvent):
 					get_child(1).queue_free()
 				if currTile == Vector2i(1,1):
 					var path = get_tree().get_root().get_node("Main/Towers")
-				
+					var targets = get_child(1).get_node("TowerDetector").get_overlapping_bodies()
+					#if (targets.size() > 1):
 					path.add_child(tempTower)
 					tempTower.global_position = event.global_position
 					tempTower.get_node("Area").hide()
