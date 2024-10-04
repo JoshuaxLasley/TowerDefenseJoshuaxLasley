@@ -6,9 +6,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_3dbvc"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 206.796, 272.865, 0, 0, 0, 0, 376.212, 288.813, 0, 0, 0, 0, 546.326, 281.142, 0, 0, 0, 0, 634.369, 304.761, 0, 0, 0, 0, 724.01, 339.683, 0, 0, 0, 0, 763.448, 416.395, 0, 0, 0, 0, 844.122, 464.238, 0, 0, 0, 0, 900.594, 464.238, 0, 0, 0, 0, 916.729, 623.716)
+"points": PackedVector2Array(0, 0, 0, 0, 250.09, 279.085, 0, 0, 0, 0, 443.709, 271.111, 0, 0, 0, 0, 726.068, 334.902, 0, 0, 0, 0, 943.889, 406.666, 0, 0, 0, 0, 1113.31, 522.287, 0, 0, 0, 0, 1177.84, 602.025, 0, 0, 0, 0, 1193.98, 737.581, 0, 0, 0, 0, 1161.71, 857.188, 0, 0, 0, 0, 1068.54, 929.725, 0, 0, 0, 0, 984.226, 988.757, 0, 0, 0, 0, 847.08, 1100.39, 0, 0, 0, 0, 726.068, 1235.95, 0, 0, 0, 0, 718.001, 1411.37, 0, 0, 0, 0, 839.013, 1503.07, 0, 0, 0, 0, 960.024, 1582.81, 0, 0, 0, 0, 1113.31, 1662.55, 0, 0, 0, 0, 1403.73, 1694.44, 0, 0, 0, 0, 1574.67, 1690.76, 0, 0, 0, 0, 1863.58, 1690.46, 0, 0, 0, 0, 2162.07, 1626.66, 0, 0, 0, 0, 2468.63, 1538.95, 0, 0, 0, 0, 2662.25, 1355.55, 0, 0, 0, 0, 2678.39, 1208.04, 0, 0, 0, 0, 2759.06, 1044.57, 0, 0, 0, 0, 2960.75, 948.888, 0, 0, 0, 0, 3202.77, 845.228, 0, 0, 0, 0, 3372.18, 813.332, 0, 0, 0, 0, 3541.6, 781.437)
 }
-point_count = 9
+point_count = 28
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wme5i"]
 texture = ExtResource("3_0sgte")
@@ -381,17 +381,17 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_wme5i")
 
 [node name="Path2D" type="Path2D"]
-position = Vector2(64, 400)
+position = Vector2(-248, 164)
 scale = Vector2(0.991642, 1.00328)
 curve = SubResource("Curve2D_3dbvc")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-position = Vector2(206.796, 272.865)
-rotation = 0.0938571
+position = Vector2(250.09, 279.085)
+rotation = -0.0411607
 loop = false
 
 [node name="Soldier A" parent="PathFollow2D" instance=ExtResource("1_yswuy")]
-position = Vector2(-174.592, -208.129)
+position = Vector2(-5.45713, -259.595)
 rotation = -0.165149
 
 [node name="TileMap" parent="." instance=ExtResource("2_sac31")]
